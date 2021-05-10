@@ -45,13 +45,12 @@ async def parse(url):
 
 
 # 保存为csv
-def save(city, community, location, total_price, unit_price, layout, area, floor, house_type, release_time, title):
+def save(*args):
     if not os.path.exists(path):
         os.mkdir(path)
-    with open(path + '二手房.csv', 'a', encoding='utf-8', newline='') as f:
+    with open(path + '苏州二手房.csv', 'a', encoding='utf-8', newline='') as f:
         writer = csv.writer(f)
-        writer.writerow(
-            [city, community, location, total_price, unit_price, layout, area, floor, house_type, release_time, title])
+        writer.writerow([*args])
 
 
 # 构造url
