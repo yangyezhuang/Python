@@ -10,8 +10,8 @@ headers = {
     'User-Agent':
         'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36'
 }
-# path = dirname(abspath(__file__)) + '/data/'
-path = 'E:\Code\PycharmProjects\数据统计分析及软件应用\链家网实战\data/'
+path = dirname(abspath(__file__)) + '/data/'
+
 
 
 # 解析数据
@@ -44,14 +44,13 @@ async def parse(url):
 
 
 # 保存为csv
-def save(city, location, total_price, unit_price, layout, area, floor, release_time, title):
+def save(*args):
     if not os.path.exists(path):
         os.mkdir(path)
     with open(path + '一线城市.csv', 'a', encoding='utf-8', newline='') as f:
         writer = csv.writer(f)
         # writer.writerow(['city','community','location','total_price','unit_price','layout,area','floor','type','time','title'])
-        writer.writerow(
-            [city, location, total_price, unit_price, layout, area, floor, release_time, title])
+        writer.writerow([*args])
 
 
 # 写入词云文本文件
