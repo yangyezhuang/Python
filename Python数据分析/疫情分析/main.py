@@ -1,7 +1,6 @@
-import time
-
 import matplotlib.pyplot as plt
 import pandas as pd
+import time
 
 plt.rcParams['font.family'] = 'simhei'
 plt.rcParams['axes.unicode_minus'] = False
@@ -15,7 +14,6 @@ def total_time(func):
         stop = time.time()
         print('end timer:%fs.' % (start - stop))
         return result
-
     return a
 
 
